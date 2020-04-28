@@ -51,6 +51,17 @@ The flag `--dev` adds `parcel-bundler` in the `devDependencies` in [`package.jso
 
 I did get a warning when I ran `yarn add --dev parcel-bundler` that my `core-js` was below version 3, but when I checked my `package.json`, the `core-js` version showed `^3.6.5`, so I decided I was fine for now, and to keep building.
 
+#### Add Start script to package.json
+
+This is the last step in the [Parcel React Recipe](https://parceljs.org/recipes.html#react).
+
+```json
+"scripts": {
+  "start": "parcel index.html"
+}
+```
+#### Looking over the setup so far
+
 Then my [`package.json`](./package.json) looked like this:
 ```json
 {
@@ -69,10 +80,39 @@ Then my [`package.json`](./package.json) looked like this:
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
+  },
+  "scripts": {
+    "start": "parcel index.html"
   }
 }
 ```
 I checked online for the latest versions of react and react-dom (as of April 28, 2020) and this all looked good to me.
+
+#### Back to the [Parcel Getting Started doc](https://parceljs.org/getting_started.html)
+
+Next, create an index.html and index.js file.
+
+```
+touch index.html
+touch index.js
+```
+
+Paste this in index.html:
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="./index.js"></script>
+    <h1>Hello</h1>
+  </body>
+</html>
+```
+Parcel has a development server built in, which will automatically rebuild your app as you change files and supports hot module replacement for fast development. Point it at your entry file:
+
+`parcel index.html`
+
+Then open up <http://localhost:1234/>. Hopefully this works!
 
 #### Using git and GitHub
 

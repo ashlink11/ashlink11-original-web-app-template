@@ -249,3 +249,18 @@ That has to do with line endings handled differently on Mac vs PC. I'm gonna ign
 
 git commit
 git push -u origin master
+
+Add Start script to package.json
+
+// package.json
+"scripts": {
+  "start": "parcel index.html"
+}
+$ touch index.html
+$ touch index.js
+
+
+
+parcel index.html
+Server running at http://localhost:1234
+✨  Built in 53ms.
