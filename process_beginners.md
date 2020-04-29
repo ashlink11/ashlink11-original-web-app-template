@@ -1,11 +1,5 @@
-# A very detailed setup log
-
-## About THIS
-I have the link to the command, then the commands, then the output and comments.
-
-
-## My CLI output and sources for where I got the commands
-
+`mkdir dojo`
+`cd dojo`
 
 https://parceljs.org/getting_started.html
 brew install yarn
@@ -250,6 +244,7 @@ That has to do with line endings handled differently on Mac vs PC. I'm gonna ign
 git commit
 git push -u origin master
 
+
 Add Start script to package.json
 
 // package.json
@@ -264,3 +259,111 @@ $ touch index.js
 parcel index.html
 Server running at http://localhost:1234
 ✨  Built in 53ms.
+
+
+https://github.com/parcel-bundler/parcel
+PARCEL CLI section
+
+The Parcel CLI is built into the main parcel package. While you can install it globally and run it, it is much better to install it locally into your project as a dev dependency.
+
+yarn add --dev parcel@next
+
+
+  "scripts": {
+    "build": "parcel build index.html",
+    "start": "parcel serve index.html"
+  }
+Now you can run yarn build to bundle your project for production and yarn start to dev on your project.
+
+$ yarn build
+yarn run v1.22.4
+$ parcel build index.html
+✨  Built in 16.54s.
+
+dist/dojo.f84e1103.js           1.11 KB     395ms
+dist/index.html                   253 B    13.11s
+dist/styles.91125fd8.css.map      170 B       3ms
+dist/dojo.f84e1103.js.map          95 B       2ms
+dist/styles.91125fd8.css           62 B     3.25s
+✨  Done in 26.85s.
+
+
+Trned on GitHub pages in Settings on GitHub.
+Then got this error emailed to me:
+
+The page build completed successfully, but returned the following warning for the `master` branch:
+
+It looks like you're using GitHub Pages to distribute binary files. We strongly suggest that you use releases to ship projects on GitHub. Releases are GitHub's way of packaging and providing software to your users. You can think of it as a replacement to using downloads to provide software. We found the following file(s) which may be a good candidate for releases: node_modules/@parcel/fs/node_modules/@parcel/watcher/watchman/windows/bin/watchman.exe and node_modules/term-size/vendor/windows/term-size.exe. For more information, see https://help.github.com/en/github/administering-a-repository/about-releases.
+
+For information on troubleshooting Jekyll see:
+
+  https://help.github.com/articles/troubleshooting-jekyll-builds
+
+If you have any questions you can submit a request on the Contact GitHub page at https://support.github.com/contact?repo_id=259733010&page_build_id=177194802
+
+Then following this tutorial, I made a gitignore and figuring out how to remove dist and node_modules from GitHub
+https://gist.github.com/OleksiyRudenko/7e94aa2d18927e0c5e65b2b5a1c0e375
+(just followed the first part about Targets)
+
+Remove now-ignored directories dist, node_modules, and .cache
+
+    use this guide
+    https://stackoverflow.com/questions/7927230/remove-directory-from-remote-repository-after-adding-them-to-gitignore
+
+    git rm -r --cached some-directory
+    git commit -m 'Remove the now ignored directory "some-directory"'
+    git push origin master
+
+Preserves commit history!
+
+Your GitHub Pages site is currently being built from the master branch. Learn more.
+
+yarn add --dev parcel-plugin-bundle-visualiser
+yarn add v1.22.4
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 🔨  Building fresh packages...
+success Saved lockfile.
+success Saved 24 new dependencies.
+info Direct dependencies
+└─ parcel-plugin-bundle-visualiser@1.2.0
+info All dependencies
+├─ camelcase@4.1.0
+├─ cliui@4.1.0
+├─ duplexer@0.1.1
+├─ execa@1.0.0
+├─ get-caller-file@1.0.3
+├─ get-stream@4.1.0
+├─ gzip-size@4.1.0
+├─ invert-kv@2.0.0
+├─ is-stream@1.1.0
+├─ lcid@2.0.0
+├─ map-age-cleaner@0.1.3
+├─ mem@4.3.0
+├─ npm-run-path@2.0.2
+├─ os-locale@3.1.0
+├─ p-defer@1.0.0
+├─ p-finally@1.0.0
+├─ p-is-promise@2.1.0
+├─ parcel-plugin-bundle-visualiser@1.2.0
+├─ require-main-filename@1.0.1
+├─ strip-eof@1.0.0
+├─ wrap-ansi@2.1.0
+├─ y18n@3.2.1
+├─ yargs-parser@9.0.2
+└─ yargs@11.1.1
+✨  Done in 7.87s.
+
+![parcel-plugin-bundle-visualiser output for this project](https://bc3-production-blobs-us-east-2.s3.us-east-2.amazonaws.com/bfacd598-8a40-11ea-b041-ecf4bbd72a88?response-content-disposition=inline%3B%20filename%3D%22Screen%20Shot%202020-04-29%20at%201.28.11%20PM.png%22%3B%20filename%2A%3DUTF-8%27%27Screen%2520Shot%25202020-04-29%2520at%25201.28.11%2520PM.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJA4YU4LL6QTTS55A%2F20200429%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20200429T191302Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=8a664e42e6d3e89bc6b74ee669d8ca746690a76fbe2be80ebc765e58083e3e82)﻿
+﻿
+Chrome DevTools
+Audits tab uses Google Lighthouse (my site doesnt have enough on it to work the audit)
+But Network tab (go to page, then reload) shows
+﻿
+I went to the browser and verified the build sizes were indeed very small:
+![Chrome DevTools Network tab](https://bc3-production-blobs-us-east-2.s3.us-east-2.amazonaws.com/6da4af0e-8a41-11ea-ae35-a0369f740db1?response-content-disposition=inline%3B%20filename%3D%22Screen%20Shot%202020-04-29%20at%201.46.46%20PM.png%22%3B%20filename%2A%3DUTF-8%27%27Screen%2520Shot%25202020-04-29%2520at%25201.46.46%2520PM.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJA4YU4LL6QTTS55A%2F20200429%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20200429T191450Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=8663be06e41dee71249207d5843e1acfad64b7cc5ab14462b086c00a57788324)
+
+Which seems like it is all compressed, cause it reflects more of the gzip file size than the unzipped size
+
+... I THINK THE BUILD IS WORKING! Time for README edits

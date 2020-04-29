@@ -1,6 +1,8 @@
 # Dojo Project - Learning the Build Process for a React Web App
 #### Date created: Tuesday, April 28, 2020
-#### Date last modified: ---
+#### Date last modified: Wednesday, April 29, 2020
+
+
 
 # Dependency Choices
 
@@ -12,11 +14,15 @@ I chose this because Ryan Dahl (creator of Node.js and Deno JS frameworks) said 
 
 On the [React official documentation for Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app), they mention that you can use many different toolchains, including Webpack, Next.js, Gatsby, Neutrino, Parcel, and Razzle. Then, the React docs link to the [Parcel React Recipe](https://parceljs.org/recipes.html#react), which I use in my setup.
 
+
+
 # Set up local files, development environment, and deploy to production
 
 I made a [very detailed yet unedited process doc](./process_beginners.md) for absolute beginners to follow what I did command-by-command including all of my CLI output. You can refer to this if you have more questions about my setup process.
 
 This is the summary of what you should do to replicate my codebase:
+
+
 
 # Set up local files
 
@@ -80,6 +86,8 @@ yarn add --dev parcel-bundler
 The flag `--dev` adds `parcel-bundler` in the `devDependencies` in [`package.json`](./package.json).
 
 I did get a warning when I ran `yarn add --dev parcel-bundler` that my `core-js` was below version 3, but when I checked my `package.json`, the `core-js` version showed `^3.6.5`, so I decided I was fine for now, and to keep building.
+
+
 
 # Set up development environment
 
@@ -146,8 +154,9 @@ Parcel has a development server built in, which will automatically rebuild your 
 
 Then open up <http://localhost:1234/>. Hopefully this works! This means the dev environment is set up!
 
-# Deploy to Production
 
+
+# Deploy to Production
 
 Through this process, I'm going to add a couple devDependencies and a `build` script. `package.json` will eventually look this this:
 
