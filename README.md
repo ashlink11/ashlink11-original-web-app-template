@@ -19,14 +19,14 @@ On the [React official documentation for Create a New React App](https://reactjs
 # Process
 
 1. Set up local files
-2. Set up Development environment
+2. Set up development environment
 3. Set up build process & deploy to production
 
 Sidenote: I made a [very detailed yet completely unedited process doc](./process_beginners.md) for absolute beginners to follow what I did command-by-command including all of my CLI output. You can refer to this if you have more questions about my setup process. It's messy, but I never know if it would help out. You can see how many times I messed up and what I had to do to fix things.
 
 ***
 
-# Set up local files
+# Set up Local Files
 
 ### Create the folder for my web app and move into it
 
@@ -91,7 +91,7 @@ I did get a warning when I ran `yarn add --dev parcel-bundler` that my `core-js`
 
 
 
-# Set up development environment
+# Set up Development Environment
 
 ### Add Start script to package.json
 
@@ -158,7 +158,7 @@ Then open up <http://localhost:1234/>. Hopefully this works! This means the dev 
 
 
 
-# Deploy to Production
+# Set up Build Process & Deploy to Production
 
 Through this process, I'm going to add a couple devDependencies and a `build` script. `package.json` will eventually look this this:
 
