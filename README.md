@@ -89,7 +89,7 @@ The flag `--dev` adds `parcel-bundler` in the `devDependencies` in [`package.jso
 
 I did get a warning when I ran `yarn add --dev parcel-bundler` that my `core-js` was below version 3, but when I checked my `package.json`, the `core-js` version showed `^3.6.5`, so I decided I was fine for now, and to keep building.
 
-
+***
 
 # Set up Development Environment
 
@@ -156,7 +156,7 @@ Parcel has a development server built in, which will automatically rebuild your 
 
 Then open up <http://localhost:1234/>. Hopefully this works! This means the dev environment is set up!
 
-
+***
 
 # Set up Build Process & Deploy to Production
 
