@@ -2,7 +2,7 @@
 #### Date created: Tuesday, April 28, 2020
 #### Date last modified: Wednesday, April 29, 2020
 
-
+***
 
 # Dependency Choices
 
@@ -14,15 +14,17 @@ I chose this because Ryan Dahl (creator of Node.js and Deno JS frameworks) said 
 
 On the [React official documentation for Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app), they mention that you can use many different toolchains, including Webpack, Next.js, Gatsby, Neutrino, Parcel, and Razzle. Then, the React docs link to the [Parcel React Recipe](https://parceljs.org/recipes.html#react), which I use in my setup.
 
+***
 
+# Process
 
-# Set up local files, development environment, and deploy to production
+1. Set up local files
+2. Set up Development environment
+3. Set up build process & deploy to production
 
-I made a [very detailed yet unedited process doc](./process_beginners.md) for absolute beginners to follow what I did command-by-command including all of my CLI output. You can refer to this if you have more questions about my setup process.
+Sidenote: I made a [very detailed yet completely unedited process doc](./process_beginners.md) for absolute beginners to follow what I did command-by-command including all of my CLI output. You can refer to this if you have more questions about my setup process. It's messy, but I never know if it would help out. You can see how many times I messed up and what I had to do to fix things.
 
-This is the summary of what you should do to replicate my codebase:
-
-
+***
 
 # Set up local files
 
