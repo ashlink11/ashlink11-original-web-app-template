@@ -206,6 +206,14 @@ dist/styles.91125fd8.css           62 B     3.25s
 
 They were very small for me.
 
+### Set up GitHub pages
+
+I went to my repository on GitHub and clicked on the "Settings" tab.
+
+I turned on GitHub pages and it said: "Your GitHub Pages site is currently being built from the master branch."
+
+I think this is what added `gh-pages` to devDependencies, but I am not 100% sure.
+
 ### Optional: add parcel file-size visualizer
 
 It hasn't been maintained in a while, so I don't suggest downloading it, but I used it to measure the file size again and verify the file sizes were compressed.
@@ -231,4 +239,10 @@ I went to the browser and verified the build sizes were indeed very small:
 
 My build was 4 files, each under 1KB in size.
 
+# Success!
+
 The build seems to be working! Note that it's the first time I've done a build from scratch so don't take my word for it!
+
+My page is hosted at: <https://hashbangash.github.io/dojo/>.
+
+Next steps: I am going to build out page content and want to add `react-router-dom` so this site can have multiple pages.
