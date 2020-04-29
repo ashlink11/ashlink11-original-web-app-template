@@ -20,6 +20,16 @@ I chose this because Ryan Dahl (creator of Node.js and Deno JS frameworks) said 
 
 On the [React official documentation for Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app), they mention that you can use many different toolchains, including Webpack, Next.js, Gatsby, Neutrino, Parcel, and Razzle. Then, the React docs link to the [Parcel React Recipe](https://parceljs.org/recipes.html#react), which I use in my setup.
 
+### react
+I chose React because I love JavaScript. I love how JavaScript design patterns have changed over time and evolved with frameworks, and React is a truly modern framework. It works, as you can see by these companies who use it:
+
+![Companies who use React from React Conf 2018 presentation](https://user-images.githubusercontent.com/22508682/80646694-34b1ea00-8a3b-11ea-9218-37cd02f23f72.png)
+
+I love the way React separates logic and data with function components and hooks. This is the declarative style of programming: React components can be purely functional. The leader of the React core team is Sophie Alpert and she's personally a big inspiration to me. Here's a [video of Sophie Alpert, Dan Abramov and Ryan Florence introducing Hooks in 2018](https://www.youtube.com/watch?v=dpw9EHDh2bM).
+
+### docker
+I chose Docker because I want to know as much about DevOps and infrastructure to inform me as a developer. I want to eventually be able to architect and maintain an entire enterprise web-app from scratch. So, right now, I've got to start with Docker. Containerization is great because it solves the problem of "this doesn't work on my computer". I will set up the build process of using the `package.json` file and running `yarn install` when I create my `Dockerfile`. This installs all the dependencies inside the container, fresh each time. Additionally, containers are much much smaller than Virtual Machines (VMs), which were traditionally used for cloud infrastructure to create a secure, reliable, scalable web-app environment. The next steps after learning Docker are to build microservices, orchestrate the containers with Kubernetes, and practice with messaging queues, cloud providers, etc., etc.
+
 ***
 
 # Process
