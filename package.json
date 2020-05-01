@@ -20,7 +20,6 @@
   },
   "scripts": {
     "build": "parcel build index.html",
-    "start": "parcel serve index.html",
-    "deploy": "gh-pages -d build -b master"
+    "start": "parcel serve index.html"
   }
 }
