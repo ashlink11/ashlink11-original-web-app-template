@@ -74,7 +74,6 @@ dist/styles.91125fd8.css           62 B     3.25s
 
 They were very small for me.
 
-
 ## [Home](./../README.md)
 ## [Prev <== Set up development environment](./dev.md)
 ## [Next ==> Deploy to production](./deploy.md)

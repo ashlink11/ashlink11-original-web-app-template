@@ -1,6 +1,6 @@
 # Deploy to Production
 
-### Set up GitHub pages
+## Set up GitHub pages
 
 I went to my repository on GitHub and clicked on the "Settings" tab.
 
@@ -27,5 +27,5 @@ Note that the `deploy` script uses the `dist` folder because this is the name of
 Then, I ensured on my GitHub dojo repo in `Settings` that GitHub pages was building from the `gh-pages` branch and not the `master` branch. This additionally is great because it allows me to properly configure the `react-router-dom`, which converts this app from a SPA to a PWA with multiple pages being served from the root domain.
 
 ## [Home](./../README.md)
-## [Prev <== Set up development environment](./dev.md)
-## [Next ==> Deploy to production](./deploy.md)
+## [Prev <== Set up build process](./build_process.md)
+## [Next ==> Verify the build](./verify.md)
