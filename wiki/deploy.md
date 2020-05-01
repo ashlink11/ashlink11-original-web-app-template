@@ -6,7 +6,7 @@ I went to my repository on GitHub and clicked on the "Settings" tab.
 
 I turned on GitHub pages and it said: "Your GitHub Pages site is currently being built from the master branch."
 
-I knew I wanted to deploy from the gh-pages branch, so I used the `Create React App Docs - Deployment - GitHub Pages Tutorial`(https://create-react-app.dev/docs/deployment#github-pages).
+I knew I wanted to deploy from the gh-pages branch, so I used the [Create React App Docs - Deployment - GitHub Pages Tutorial](https://create-react-app.dev/docs/deployment#github-pages).
 
 I added the `homepage` to `package.json`:
 `"homepage": "https://github.com/hashbangash/dojo",`
