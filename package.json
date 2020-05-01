@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "First experiment with build process with yarn, parcel, and docker for React.",
   "main": "index.js",
+  "homepage": "https://github.com/hashbangash/dojo",
   "repository": "https://github.com/hashbangash/dojo",
   "author": "Ash Grevelink",
   "license": "MIT",
@@ -13,7 +14,9 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
+    "@babel/core": "^7.0.0-0",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "gh-pages": "^2.2.0",
@@ -22,12 +25,9 @@
     "parcel-plugin-bundle-visualiser": "^1.2.0"
   },
   "scripts": {
+    "start": "parcel serve index.html",
     "build": "parcel build index.html",
-    "start": "parcel serve index.html"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-react"
-    ]
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d dist"
   }
 }
