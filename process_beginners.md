@@ -367,3 +367,198 @@ I went to the browser and verified the build sizes were indeed very small:
 Which seems like it is all compressed, cause it reflects more of the gzip file size than the unzipped size
 
 ... I THINK THE BUILD IS WORKING! Time for README edits
+
+
+
+
+
+https://reactjs.org/docs/create-a-new-react-app.html#create-react-app
+Creating a Toolchain from Scratch
+
+A JavaScript build toolchain typically consists of:
+A package manager, such as Yarn or npm. It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.
+A bundler, such as webpack or Parcel. It lets you write modular code and bundle it together into small packages to optimize load time.
+A compiler such as Babel. It lets you write modern JavaScript code that still works in older browsers.
+
+Still need compiler.
+
+If you aren’t sure whether your build process is set up correctly, you can check it by installing React Developer Tools for Chrome. If you visit a site with React in production mode, the icon will have a dark background:
+
+If you visit a site with React in development mode, the icon will have a red background:
+
+
+
+
+
+
+
+
+
+
+
+
+TODO -
+
+https://parceljs.org/javascript.html
+
+Babel
+
+
+Babel is a popular transpiler for JavaScript, with a large plugin ecosystem. Using Babel with Parcel works the same way as using it standalone or with other bundlers.
+
+
+Install presets and plugins in your app:
+
+yarn add --dev @babel/preset-react
+
+Then, create a .babelrc:
+
+{
+  "presets": ["@babel/preset-react"]
+}
+
+You can also put babel config in package.json
+
+"babel": {
+  "presets": ["@babel/preset-react"]
+}
+
+NOTE: package.json takes precedence over .babelrc.
+
+
+Default Babel transforms
+
+
+Parcel transpiles your code (every internal module) with @babel/preset-env by default to match the defined target.
+
+
+For the browser target it utilises browserslist, the target browserlist can be defined in package.json (engines.browsers or browserslist) or using a configuration file (browserslist or .browserslistrc).
+
+
+The browserlist target defaults to: > 0.25% (Meaning, support every browser that has 0.25% or more of the total amount of active web users)
+
+
+For the node target, Parcel uses the engines.node defined in package.json, this default to node 8.
+
+
+https://github.com/parcel-bundler/parcel#configuring-parcel
+Configuring Parcel
+
+When you do need to configure Parcel, it will be in one of 3 places.
+
+If you need to configure the CLI, it will be a CLI flag
+If you need to configure your package, it will be in the package.json
+If you need to configure something with your files or the Parcel asset pipeline, it will be in .parcelrc
+----------------------
+--------------------------
+React DevTools showing this is a React app
+
+    Starter code from this tutorial: https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658
+
+    Order of elements in HTML matters.
+
+
+https://makeitnew.io/dockerizing-modern-web-apps-32ecdb24bc2e
+wrap it inside a Docker image and run it as a container.
+
+
+Docker is a system to create images which can then be run as containers. You can think of docker images as super lightweight Virtual Machines that can be run on many platforms (in this image containers are running VMs). The awesomeness of all this is that once you build a docker image and run it somewhere you will get the same thing running everywhere. Once we manage to build a Docker image locally that we can run as a container successfully we know that it will also run on AWS, GCP, Portainer or whatever else your company might be using.
+
+Docker solves the infamous “it works on my machine” problem. Containers run the same wherever you start them!
+
+touch Dockerfile
+
+docker build -f Dockerfile -t dojo .
+
+Sending build context to Docker daemon  178.2MB
+Step 1/2 : FROM nginx
+latest: Pulling from library/nginx
+54fec2fa59d0: Pull complete
+4ede6f09aefe: Pull complete
+f9dc69acb465: Pull complete
+Digest: sha256:86ae264c3f4acb99b2dee4d0098c40cb8c46dcf9e1148f05d3a51c4df6758c12
+Status: Downloaded newer image for nginx:latest
+ ---> 602e111c06b6
+Step 2/2 : COPY index.html /usr/share/nginx/html
+ ---> ad8b4075495f
+Successfully built ad8b4075495f
+Successfully tagged dojo:latest
+
+docker run -p 8888:80 dojo
+
+172.17.0.1 - - [01/May/2020:15:46:34 +0000] "GET / HTTP/1.1" 200 363 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" "-"
+2020/05/01 15:46:34 [error] 6#6: *1 open() "/usr/share/nginx/html/styles.css" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /styles.css HTTP/1.1", host: "localhost:8888", referrer: "http://localhost:8888/"
+172.17.0.1 - - [01/May/2020:15:46:34 +0000] "GET /styles.css HTTP/1.1" 404 556 "http://localhost:8888/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" "-"
+172.17.0.1 - - [01/May/2020:15:46:34 +0000] "GET /index.js HTTP/1.1" 404 556 "http://localhost:8888/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" "-"
+2020/05/01 15:46:34 [error] 6#6: *2 open() "/usr/share/nginx/html/index.js" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /index.js HTTP/1.1", host: "localhost:8888", referrer: "http://localhost:8888/"
+2020/05/01 15:46:34 [error] 6#6: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8888", referrer: "http://localhost:8888/"
+172.17.0.1 - - [01/May/2020:15:46:34 +0000] "GET /favicon.ico HTTP/1.1" 404 556 "http://localhost:8888/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" "-"
+
+
+ go to http://localhost:8888/
+doesnt show app but http://localhost:8888/hello does show 404 not found
+ Zoom Screen Shot 2020-05-01 at 11.48.34 AM.png
+Screen Shot 2020-05-01 at 11.48.34 AM.png 46.9 KB View full-size Download
+
+
+this shows up, but our index.js isn't running cause there's no React options showing in the DevTools
+
+localhost runs
+ Zoom Screen Shot 2020-05-01 at 11.49.48 AM.png
+Screen Shot 2020-05-01 at 11.49.48 AM.png 63 KB View full-size Download
+
+
+so you can see parcel had compressed and bundled our app files on localhost
+
+remove this from package-json
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      "@babel/preset-env"
+    ]
+  }
+
+using this tutorial:
+https://create-react-app.dev/docs/deployment/#github-pages-https-pagesgithubcom
+
+
+trying these scripts to deploy
+  "scripts": {
+    "start": "parcel serve index.html",
+    "build": "parcel build index.html",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d dist"
+  }
+
+goes live but I get these errors. It cant load the dojo!
+
+hashbangash.github.io/:1 GET https://hashbangash.github.io/styles.91125fd8.css net::ERR_ABORTED 404 (Not Found)
+13:19:41.544 hashbangash.github.io/:1 GET https://hashbangash.github.io/dojo.493eb6d2.js net::ERR_ABORTED 404 (Not Found)
+
+this solved my issues with parcel and gh-pages
+https://github.com/parcel-bundler/parcel/issues/505!!
+
+  "scripts": {
+    "start": "parcel serve index.html",
+    "build": "parcel build index.html --public-url /dojo/",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d dist"
+  }
+
+Used this too
+https://create-react-app.dev/docs/deployment/#github-pages-https-pagesgithubcom
+
+Docker still shows "./index.js" when I run the nginx server
+
+
+delete extra babel packages
+yarn remove babel-preset-env babel-preset-react
+
+copy package.json info from babel section
+https://parceljs.org/javascript.html
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  }

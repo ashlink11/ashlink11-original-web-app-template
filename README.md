@@ -4,7 +4,7 @@
 
 ### Project Goals
 
-I want to learn way more about DevOps and infrastructure as a developer. This is the first time creating my own build process from scratch. Using: `yarn`, `parcel`, `react`, `react-dom`, `react-router-dom`, and `docker`. It's really cool to learn the toolchain that leads up to containerization, container orchestration, configuration management, continuous integration/delivery (CI/CD), etc., etc.
+I want to learn way more about DevOps and infrastructure as a developer. This is the first time creating my own build process from scratch. Using: `yarn`, `parcel`, `react`, `gh-pages`, and `docker`. It's really cool to learn the toolchain that leads up to containerization, container orchestration, configuration management, continuous integration/delivery (CI/CD), etc., etc.
 
 I will use this project in order to build [my portfolio](https://github.com/hashbangash/dev) toolchain from scratch and create Version 4 of my portfolio.
 
@@ -27,8 +27,11 @@ I chose React because I love JavaScript. I love how JavaScript design patterns h
 
 I love the way React separates logic and data with function components and hooks. This is the declarative style of programming: React components can be purely functional. The leader of the React core team is Sophie Alpert and she's personally a big inspiration to me. Here's a [video of Sophie Alpert, Dan Abramov and Ryan Florence introducing Hooks in 2018](https://www.youtube.com/watch?v=dpw9EHDh2bM).
 
+### gh-pages
+I chose GitHub pages to deploy a production link of my web app so other can view it and verify that it's a real React app and verify the files are properly compressed with React by viewing the file sizes in the Chrome DevTools Network tab. To deploy, I primarily used the `Create React App Docs - Deployment - GitHub Pages Tutorial`(https://create-react-app.dev/docs/deployment#github-pages).
+
 ### docker
-I chose Docker because I want to know as much about DevOps and infrastructure to inform me as a developer. I want to eventually be able to architect and maintain an entire enterprise web-app from scratch. So, right now, I've got to start with Docker. Containerization is great because it solves the problem of "this doesn't work on my computer". I will set up the build process of using the `package.json` file and running `yarn install` when I create my `Dockerfile`. This installs all the dependencies inside the container, fresh each time. Additionally, containers are much much smaller than Virtual Machines (VMs), which were traditionally used for cloud infrastructure to create a secure, reliable, scalable web-app environment. The next steps after learning Docker are to build microservices, orchestrate the containers with Kubernetes, and practice with messaging queues, cloud providers, etc., etc.
+I chose Docker because I want to know as much about DevOps and infrastructure to inform me as a developer. I want to eventually be able to architect and maintain an entire enterprise web-app from scratch. So, right now, I've got to start with Docker. Containerization is great because it solves the problem of "this doesn't work on my computer". I set up the build process of using the `package.json` file and running `yarn install` when I create my `Dockerfile`. This installs all the dependencies inside the container, fresh each time. Additionally, containers are much much smaller than Virtual Machines (VMs), which were traditionally used for cloud infrastructure to create a secure, reliable, scalable web-app environment. The next steps after learning Docker are to build microservices, orchestrate the containers with Kubernetes, and practice with messaging queues, cloud providers, etc., etc.
 
 ***
 
@@ -228,7 +231,25 @@ I went to my repository on GitHub and clicked on the "Settings" tab.
 
 I turned on GitHub pages and it said: "Your GitHub Pages site is currently being built from the master branch."
 
-I think this is what added `gh-pages` to devDependencies, but I am not 100% sure.
+I knew I wanted to deploy from the gh-pages branch, so I used the `Create React App Docs - Deployment - GitHub Pages Tutorial`(https://create-react-app.dev/docs/deployment#github-pages).
+
+I added the `homepage` to `package.json`:
+`"homepage": "https://github.com/hashbangash/dojo",`
+
+I edited my scripts to:
+```
+"scripts": {
+  "start": "parcel serve index.html",
+  "build": "parcel build index.html --public-url /dojo/",
+  "predeploy": "yarn build",
+  "deploy": "gh-pages -d dist"
+}
+```
+I needed to update the `build` script to add the `--public-url` tag and add the relative path of my GitHub repository. This [parcel and gh-pages help page on the parcel-bunder GitHub issue](https://github.com/parcel-bundler/parcel/issues/505) had the key info I needed to alter my `build` script.
+
+Note that the `deploy` script uses the `dist` folder because this is the name of the directory `parcel` uses during the build process.
+
+Then, I ensured on my GitHub dojo repo in `Settings` that GitHub pages was building from the `gh-pages` branch and not the `master` branch. This additionally is great because it allows me to properly configure the `react-router-dom`, which converts this app from a SPA to a PWA with multiple pages being served from the root domain.
 
 ### Optional: add parcel file-size visualizer
 
@@ -240,7 +261,6 @@ I did: `yarn add --dev parcel-plugin-bundle-visualiser`
 
 It added 24 new dependencies in the `node_modules` folder.
 
-
 See how my main JS file is 590 B when compressed:
 ![parcel-plugin-bundle-visualiser output for this project](https://bc3-production-blobs-us-east-2.s3.us-east-2.amazonaws.com/bfacd598-8a40-11ea-b041-ecf4bbd72a88?response-content-disposition=inline%3B%20filename%3D%22Screen%20Shot%202020-04-29%20at%201.28.11%20PM.png%22%3B%20filename%2A%3DUTF-8%27%27Screen%2520Shot%25202020-04-29%2520at%25201.28.11%2520PM.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJA4YU4LL6QTTS55A%2F20200429%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20200429T191302Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=8a664e42e6d3e89bc6b74ee669d8ca746690a76fbe2be80ebc765e58083e3e82)
 
@@ -248,17 +268,141 @@ The report is located locally in `dist/report.html`.
 
 70% of sites are larger than 1MB, which take 5 seconds to load, per Google Lighthouse Audit.
 
-### Verify build in Chrome DevTools Network tab
+### Adding a compiler: Babel
+
+[React Docs: Creating a Toolchain from Scratch](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app
+)
+
+A JavaScript build toolchain typically consists of:
+- A package manager, such as Yarn or npm. It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.
+- A bundler, such as webpack or Parcel. It lets you write modular code and bundle it together into small packages to optimize load time.
+- A compiler such as Babel. It lets you write modern JavaScript code that still works in older browsers.
+
+After I configured the package manager and the bundler, I knew I wanted practice with a compiler so my app will work not only on my computer and browser, but on older browsers.
+
+The [Parcel Docs on JavaScript](https://parceljs.org/javascript.html
+) have a section about Babel.
+
+"Babel is a popular transpiler for JavaScript, with a large plugin ecosystem. Using Babel with Parcel works the same way as using it standalone or with other bundlers."
+
+I briefly researched the difference between babel presets and their notations (e.g. `babel-preset-react` vs. `@babel/preset-react`). This is a topic I will dive deeper on someday soon.
+
+I followed the parcel docs and added:
+
+`yarn add --dev @babel/preset-react @babel/present-env`
+
+I added a `babel` section to my `package.json`:
+```
+"babel": {
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ]
+}
+```
+So, now I had three babel `devDependencies`:
+```
+"@babel/core": "^7.0.0-0",
+"@babel/preset-env": "^7.9.6",
+"@babel/preset-react": "^7.9.4",
+```
+
+I did not test to verify these were working by experimenting with older browser emulators, but since I barely had any website content at this point, I didn't think I could test effectively anyway.
+
+### Verifying the build
+
+##### Chrome DevTools Network tab
 
 I went to the browser and verified the build sizes were indeed very small:
 ![Chrome DevTools Network tab](https://bc3-production-blobs-us-east-2.s3.us-east-2.amazonaws.com/6da4af0e-8a41-11ea-ae35-a0369f740db1?response-content-disposition=inline%3B%20filename%3D%22Screen%20Shot%202020-04-29%20at%201.46.46%20PM.png%22%3B%20filename%2A%3DUTF-8%27%27Screen%2520Shot%25202020-04-29%2520at%25201.46.46%2520PM.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJA4YU4LL6QTTS55A%2F20200429%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20200429T191450Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=8663be06e41dee71249207d5843e1acfad64b7cc5ab14462b086c00a57788324)
 
 My build was 4 files, each under 1KB in size.
 
-# Success!
+##### React Developer Tools for Chrome
 
-The build seems to be working! Note that it's the first time I've done a build from scratch so don't take my word for it!
+Additionally, I have downloaded the [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi), and when the React app is properly deployed, the Chrome DevTools shows the React `Components` and `Profiler` tabs as well! In the [Optimizing Performance React docs](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build), we can prove that this is a live React app:
 
-My page is hosted at: <https://hashbangash.github.io/dojo/>.
+![React Developer Tools for Chrome verifying the build](https://user-images.githubusercontent.com/22508682/80836320-7c16b280-8bc2-11ea-901a-cb0f1f5c22e9.png)
 
-Next steps: I am going to build out page content and want to add `react-router-dom` so this site can have multiple pages.
+# Success! yarn, parcel, react, and gh-pages deployed to production!
+
+The build is working and deployed on: <https://hashbangash.github.io/dojo/>.
+
+# Docker
+
+I wanted practice with Docker, so I could have another way of deploying my app to production aside from using `gh-pages`. Many of my dream companies build microservices with Docker containers, so I wanted to learn more.
+
+### Setting up Docker
+
+First, I wanted the latest version of Docker.
+
+I like to use the Docker Desktop App, which also updates the Docker CLI automatically, so I updated Docker from the Mac desktop app with "Check for Updates...". This updated Docker Desktop to 2.2.0.5 and Docker CLI to 19.03.8 (from 18.09.2).
+
+I ran `docker run hello-world` to test my CLI and I got:
+```
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+```
+
+I think it's awesome to keep the official Docker documentation in mind and to keep referencing them throughout the learning process.
+
+### Attempt 1: Dockerize my Dojo App
+
+I decided to follow this tutorial that uses an `nginx` web server: <https://makeitnew.io/dockerizing-modern-web-apps-32ecdb24bc2e>. I like this tutorial because it starts out with a very simple `Dockerfile` and a very lightweight and simple image. An image could be as large as an entire Linux distribution, so it's nice to start small with a simple `nginx` server.
+
+I was able to write a simple `Dockerfile`:
+```
+FROM nginx
+
+COPY index.html /usr/share/nginx/html
+```
+I built the image and ran it:
+```
+docker build -f Dockerfile -t dojo .
+docker run -p 8888:80 dojo
+```
+I visited <http://localhost:8888/> and the html was serving, but the React files weren't being built and minified properly with parcel, and my React DevTools said "This page doesn't appear to be using React."
+
+This made me realize I need to understand a lot more about bundling and delivering the app files to a web server. I began thinking that I needed more steps like `yarn install` in my Dockerfile and that I need a web server like `Express` with `Node.js` in order to run my React app. This led me to some practice in the next step:
+
+### Attempt 2: Follow `Dockerizing a React App` Tutorial for learnings
+
+I followed a tutorial here and documented my learnings: <https://github.com/hashbangash/react-app-dockerized>.
+
+I used `npm` instead of `yarn` and I used a brand new `create-react-app` app instead of my `dojo` app, but I was hoping I would be able to apply the knowledge to eventually dockerize my `dojo` app with `yarn`.
+
+Additionally, this taught me about `docker`, `docker-compose`, images, containers, and `node.js` official docker images.
+
+### End of Sprint: Friday May 1, 2020
+
+I realize that Docker goes way deeper than I thought, and I was happy to learn the basics of it.
+
+Failures:
+- I wasn't able to Dockerize my dojo app.
+
+Successes:
+- I was able to Dockerize a React app and spin up a node server to host it locally.
+- I was able to build a React app from scratch with `yarn`, `parcel` and deploy to production with `gh-pages`.
+- I documented the process so others could follow after me.
+
+## Next steps
+
+I am going to build out page content and want to add `react-router-dom` so this site can have multiple pages.
