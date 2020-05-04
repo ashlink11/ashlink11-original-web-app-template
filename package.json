@@ -10,8 +10,9 @@
   "private": false,
   "dependencies": {
     "core-js": "^3.6.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": ">=15",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
