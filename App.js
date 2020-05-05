@@ -42,6 +42,9 @@ export default function BasicExample() {
           matches the current URL. Use a <Switch> any time
           you have multiple routes, but you want only one
           of them to render at a time
+
+          404 route from this tutorial:
+          https://www.freecodecamp.org/news/a-complete-beginners-guide-to-react-router-include-router-hooks/#router-hooks
         */}
         <Switch>
           <Route exact path="/">
@@ -53,6 +56,7 @@ export default function BasicExample() {
           <Route path="/dashboard">
             <Dashboard />
           </Route>
+          <Route render={() => <h1>404: page not found</h1>} />
         </Switch>
       </div>
     </Router>
