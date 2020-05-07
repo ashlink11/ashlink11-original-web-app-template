@@ -1,5 +1,15 @@
 # Dependency Choices
 
+[React Docs: Creating a Toolchain from Scratch](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app
+)
+
+```md
+A JavaScript build toolchain typically consists of:
+- A package manager, such as Yarn or npm. It lets you take advantage of a vast ecosystem of third-party packages, and easily install or update them.
+- A bundler, such as webpack or Parcel. It lets you write modular code and bundle it together into small packages to optimize load time.
+- A compiler such as Babel. It lets you write modern JavaScript code that still works in older browsers.
+```
+
 ### yarn
 I chose `yarn` for my package manager because it's built on top of `npm` and creates the `package.lock` file like `npm` does, but also it's easy to manage licenses and ensure the dependencies all have MIT License (which is ok for commercial use) and not GNU GPLv3 (which is non-commerical).
 
