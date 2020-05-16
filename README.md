@@ -1,4 +1,4 @@
-# Dojo Project - Learning the Build Process for a React Web App
+### Dojo Project - Learning the Build Process for a React Web App
 #### Date created: Tuesday, April 28, 2020
 #### Date last modified: Friday, May 7, 2020
 
