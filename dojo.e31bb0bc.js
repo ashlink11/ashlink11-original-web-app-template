@@ -32211,33 +32211,46 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 // work properly.
 function BasicExample() {
   return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/"
+    to: "/dojo/"
   }, "Home")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/about"
+    to: "/dojo/about"
   }, "About")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/dashboard"
-  }, "Dashboard"))), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    to: "/dojo/page-speed"
+  }, "Page Speed"))), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
-    path: "/"
+    path: "/dojo/"
   }, /*#__PURE__*/_react.default.createElement(Home, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    path: "/about"
+    path: "/dojo/about"
   }, /*#__PURE__*/_react.default.createElement(About, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    path: "/dashboard"
-  }, /*#__PURE__*/_react.default.createElement(Dashboard, null)))));
+    path: "/dojo/page-speed"
+  }, /*#__PURE__*/_react.default.createElement(Dashboard, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    render: function render() {
+      return /*#__PURE__*/_react.default.createElement("h1", null, "404: page not found");
+    }
+  }))));
 } // You can think of these components as "pages"
 // in your app.
 
 
 function Home() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Home"));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Home"), /*#__PURE__*/_react.default.createElement("h3", null, " Welcome to the Dojo Project."), /*#__PURE__*/_react.default.createElement("p", null, "This is an open-source, lightweight, maintainable React app template with react-router-dom."), /*#__PURE__*/_react.default.createElement("p", null, "It's built with as few dependencies and configurations as possible."), /*#__PURE__*/_react.default.createElement("p", null, "Toolchain is built from scratch with yarn, Parcel, React, react-router-dom, & GitHub Pages."), /*#__PURE__*/_react.default.createElement("p", null, "Learn how to build your own: ", /*#__PURE__*/_react.default.createElement("a", {
+    href: "https://github.com/hashbangash/dojo",
+    target: "_blank"
+  }, "Detailed bill of tech and comprehensive tutorial")), /*#__PURE__*/_react.default.createElement("p", null, "Last updated: Friday, May 15, 2020"));
 }
 
 function About() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "About"));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "About"), /*#__PURE__*/_react.default.createElement("p", null, "The tutorial and documentation lives in the ", /*#__PURE__*/_react.default.createElement("a", {
+    href: "https://github.com/hashbangash/dojo",
+    target: "_blank"
+  }, "README wiki on GitHub"), " and includes:"), /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, "Detailed description of dependency choices"), /*#__PURE__*/_react.default.createElement("li", null, "Set up local files"), /*#__PURE__*/_react.default.createElement("li", null, "Set up development environment"), /*#__PURE__*/_react.default.createElement("li", null, "Set up build process"), /*#__PURE__*/_react.default.createElement("li", null, "Deploy to production"), /*#__PURE__*/_react.default.createElement("li", null, "Verify the build"), /*#__PURE__*/_react.default.createElement("li", null, "2 attempts at Dockerization"), /*#__PURE__*/_react.default.createElement("li", null, "etc.")));
 }
 
 function Dashboard() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Dashboard"));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Page Speed"), /*#__PURE__*/_react.default.createElement("p", null, "Open the Chrome DevTools Network tab, reload, and check out the file sizes and page load speed."), /*#__PURE__*/_react.default.createElement("p", null, "Test this site on ", /*#__PURE__*/_react.default.createElement("a", {
+    href: "https://developers.google.com/speed/pagespeed/insights/",
+    target: "_blank"
+  }, "Google PageSpeed Insights"), "."));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"index.js":[function(require,module,exports) {
 "use strict";
@@ -32281,7 +32294,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57641" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59741" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
