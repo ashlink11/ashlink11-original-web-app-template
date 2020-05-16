@@ -24,13 +24,13 @@ export default function BasicExample() {
       <div>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/dojo/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/dojo/about">About</Link>
           </li>
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/dojo/page-speed">Page Speed</Link>
           </li>
         </ul>
 
@@ -47,13 +47,13 @@ export default function BasicExample() {
           https://www.freecodecamp.org/news/a-complete-beginners-guide-to-react-router-include-router-hooks/#router-hooks
         */}
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/dojo/">
             <Home />
           </Route>
-          <Route path="/about">
+          <Route path="/dojo/about">
             <About />
           </Route>
-          <Route path="/dashboard">
+          <Route path="/dojo/page-speed">
             <Dashboard />
           </Route>
           <Route render={() => <h1>404: page not found</h1>} />
@@ -69,7 +69,13 @@ export default function BasicExample() {
 function Home() {
   return (
     <div>
-      <h2>Home</h2>
+      <h1>Home</h1>
+      <h3> Welcome to the Dojo Project.</h3>
+      <p>This is an open-source, lightweight, maintainable React app template with react-router-dom.</p>
+      <p>It's built with as few dependencies and configurations as possible.</p>
+      <p>Toolchain is built from scratch with yarn, Parcel, React, react-router-dom, & GitHub Pages.</p>
+      <p>Learn how to build your own: <a href="https://github.com/hashbangash/dojo" target="_blank">Detailed bill of tech and comprehensive tutorial</a></p>
+      <p>Last updated: Friday, May 15, 2020</p>
     </div>
   );
 }
@@ -77,7 +83,18 @@ function Home() {
 function About() {
   return (
     <div>
-      <h2>About</h2>
+      <h1>About</h1>
+      <p>The tutorial and documentation lives in the <a href="https://github.com/hashbangash/dojo" target="_blank">README wiki on GitHub</a> and includes:</p>
+      <ul>
+        <li>Detailed description of dependency choices</li>
+        <li>Set up local files</li>
+        <li>Set up development environment</li>
+        <li>Set up build process</li>
+        <li>Deploy to production</li>
+        <li>Verify the build</li>
+        <li>2 attempts at Dockerization</li>
+        <li>etc.</li>
+      </ul>
     </div>
   );
 }
@@ -85,7 +102,9 @@ function About() {
 function Dashboard() {
   return (
     <div>
-      <h2>Dashboard</h2>
+      <h1>Page Speed</h1>
+      <p>Open the Chrome DevTools Network tab, reload, and check out the file sizes and page load speed.</p>
+      <p>Test this site on <a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank">Google PageSpeed Insights</a>.</p>
     </div>
   );
 }
