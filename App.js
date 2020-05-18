@@ -5,16 +5,18 @@ export default function App() {
     <div>
       <div>
         <h1>The Dojo Project</h1>
-        <h2>Tutorial to build a React app from scratch with yarn and Parcel. Host with GitHub Pages.</h2>
         <p>Last updated: Friday, May 18, 2020</p>
       </div>
       <div>
         <h1>About</h1>
-        <p>This is an open-source, lightweight, maintainable React app template perfect for a static SPA.</p>
+        <p>This is an open-source, lightweight, maintainable React app template.</p>
         <p>It's built with as few dependencies and configurations as possible.</p>
         <p>Toolchain is built from scratch with yarn, Parcel, React & GitHub Pages.</p>
+        <p>Official documentation of all tech is heavily referenced through the tutorial for best-practices.</p>
+        <p>Latest versions of all tech is used to reduce vulnerabilities.</p>
         <p>The tutorial and documentation lives in the <a href="https://github.com/hashbangash/dojo" target="_blank">README wiki on GitHub</a> and includes:</p>
         <ul>
+          <li>Use cases & limitations</li>
           <li>Detailed description of dependency choices</li>
           <li>Set up local files</li>
           <li>Set up development environment</li>
@@ -23,6 +25,8 @@ export default function App() {
           <li>Verify the build</li>
           <li>2 experiments with Dockerization</li>
           <li>1 experiment with react-router-dom</li>
+          <li>Reflections</li>
+          <li>Extra troubleshooting</li>
           <li>etc.</li>
         </ul>
       </div>
