@@ -1,4 +1,4 @@
-# Dockerizing my app
+# Dockerizing my app (2 experiments)
 
 I wanted practice with Docker, so I could have another way of deploying my app to production aside from using `gh-pages`. Many of my dream companies build microservices with Docker containers, so I wanted to learn more.
 
@@ -63,5 +63,5 @@ Additionally, this taught me about `docker`, `docker-compose`, images, container
 
 
 ## [Home](./../README.md)
+## [Next ==> react-router-dom experiment](./router.md)
 ## [Prev <== Verify Build](./verify.md)
-## [Next ==> End of sprint reflection](./reflect.md)
