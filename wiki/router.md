@@ -1,4 +1,4 @@
-# `react-router-dom` experiment
+# `react-router-dom` experiment (added Monday, May 18, 2020)
 
 I attempted using [`react-router-dom`](https://reacttraining.com/react-router/web/guides/primary-components) and using the `BrowserRouter`.
 

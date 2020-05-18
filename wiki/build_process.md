@@ -2,14 +2,14 @@
 
 ### Adding a compiler: Babel
 
-After I configured the package manager and the bundler, I knew I wanted practice with a compiler so my app will work not only on my computer and browser, but on older browsers.
+After I configured the package manager and the bundler, I knew I wanted practice with a compiler so my app will work not only on modern, updated browsers, but on older browsers.
 
 The [Parcel Docs on JavaScript](https://parceljs.org/javascript.html
 ) have a section about Babel.
 
 "Babel is a popular transpiler for JavaScript, with a large plugin ecosystem. Using Babel with Parcel works the same way as using it standalone or with other bundlers."
 
-I briefly researched the difference between babel presets and their notations (e.g. `babel-preset-react` vs. `@babel/preset-react`). This is a topic I will dive deeper on someday soon.
+I briefly researched the difference between babel presets and their notations (e.g. `babel-preset-react` vs. `@babel/preset-react`).
 
 I followed the parcel docs and added:
 
@@ -33,6 +33,7 @@ So, now I had three babel `devDependencies`:
 
 I did not test to verify these were working by experimenting with older browser emulators, but since I barely had any website content at this point, I didn't think I could test effectively anyway.
 
+This section is meant to serve that I looked a little bit into babel as a compiler, but must learn more.
 
 ### Add Parcel CLI
 

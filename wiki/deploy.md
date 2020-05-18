@@ -24,7 +24,7 @@ I needed to update the `build` script to add the `--public-url` tag and add the 
 
 Note that the `deploy` script uses the `dist` folder because this is the name of the directory `parcel` uses during the build process.
 
-Then, I ensured on my GitHub dojo repo in `Settings` that GitHub pages was building from the `gh-pages` branch and not the `master` branch. This additionally is great because it allows me to properly configure the `react-router-dom`, which converts this app from a SPA to a PWA with multiple pages being served from the root domain.
+Then, I ensured on my GitHub dojo repo in `Settings` that GitHub pages was building from the `gh-pages` branch and not the `master` branch.
 
 #### Troubleshooting
 When I was experimenting with adding a new dependency with `yarn add`, one time I had to:
