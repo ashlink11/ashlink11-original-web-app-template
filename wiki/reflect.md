@@ -22,5 +22,12 @@ I did experiment with the `react-router-dom` and added the corresponding page in
 
 I also built out the app on <https://hashbangash.github.io/dojo/> so there's more information and so that it can be a truly useful and complete tutorial for others that expresses its limitations and use-cases.
 
+# Reflection 3 (Wednesday, June 10, 2020)
+
+I was able to go through the build process with a friend and again by myself.
+
+## Extra troubleshooting
+I made a [very detailed yet completely unedited process doc](./process_beginners.md) for absolute beginners to follow what I did command-by-command including all of my CLI output. You can refer to this if you have more questions about my setup process. It's messy, but I thought it could possibly help out. You can see how many times I messed up and what I had to do to fix things.
+
 ## [Home](./../README.md)
 ## [Prev <== react-router-dom experiment](./router.md)

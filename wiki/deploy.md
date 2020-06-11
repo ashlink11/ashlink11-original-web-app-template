@@ -2,35 +2,31 @@
 
 ## Set up GitHub pages
 
-I went to my repository on GitHub and clicked on the "Settings" tab.
+Go to your repository on GitHub.com and click on the "Settings" tab.
 
-I turned on GitHub pages and it said: "Your GitHub Pages site is currently being built from the master branch."
+Ensure your repo is public and turn on GitHub Pages. It should say "Your GitHub Pages site is currently being built from the master branch."
 
-I knew I wanted to deploy from the gh-pages branch, so I used the [Create React App Docs - Deployment - GitHub Pages Tutorial](https://create-react-app.dev/docs/deployment#github-pages).
+Let's deploy from the `gh-pages` branch, detailed here: [Create React App Docs - Deployment - GitHub Pages Tutorial](https://create-react-app.dev/docs/deployment#github-pages).
 
-I added the `homepage` to `package.json`:
+Add the `homepage` to `package.json`, for example with mine:
 `"homepage": "https://github.com/hashbangash/dojo",`
 
-I edited my scripts to:
+Edit your scripts to include the deployment:
 ```
 "scripts": {
   "start": "parcel serve index.html",
-  "build": "parcel build index.html --public-url /dojo/",
+  "build": "parcel build index.html --public-url /<your_repo_name>/",
   "predeploy": "yarn build",
   "deploy": "gh-pages -d dist"
 }
 ```
-I needed to update the `build` script to add the `--public-url` tag and add the relative path of my GitHub repository. This [parcel and gh-pages help page on the parcel-bunder GitHub issue](https://github.com/parcel-bundler/parcel/issues/505) had the key info I needed to alter my `build` script.
+The `build` script was updated with the `--public-url` tag and the relative path of the GitHub repository. This [parcel and gh-pages help page on the parcel-bunder GitHub issue](https://github.com/parcel-bundler/parcel/issues/505) had the key info needed to alter the `build` script.
 
 Note that the `deploy` script uses the `dist` folder because this is the name of the directory `parcel` uses during the build process.
 
-Then, I ensured on my GitHub dojo repo in `Settings` that GitHub pages was building from the `gh-pages` branch and not the `master` branch.
+Then, ensure on your GitHub repo in `Settings` that GitHub Pages is building from the `gh-pages` branch and not the `master` branch.
 
-#### Troubleshooting
-When I was experimenting with adding a new dependency with `yarn add`, one time I had to:
-`rm -rf .cache`
-`rm -rf dist`
-It's a [confirmed bug on the parcel GitHub repo](https://github.com/parcel-bundler/parcel/issues/729).
+Great! Now you can visit your hosted page! Mine is at <https://hashbangash.github.io/dojo/>.
 
 ## [Home](./../README.md)
 ## [Prev <== Set up build process](./build_process.md)

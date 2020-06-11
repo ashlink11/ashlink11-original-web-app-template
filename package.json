@@ -18,13 +18,17 @@
     "@babel/preset-react": "^7.10.1",
     "gh-pages": "^2.2.0",
     "parcel": "^2.0.0-alpha.3.2",
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-bundle-visualiser": "^1.2.0"
+    "parcel-bundler": "^1.12.4"
   },
   "scripts": {
     "start": "parcel serve index.html",
     "build": "parcel build index.html --public-url /dojo/",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d dist"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
   }
 }
