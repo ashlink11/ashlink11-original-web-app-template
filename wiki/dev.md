@@ -9,9 +9,12 @@ This is the last step in the [Parcel React Recipe](https://parceljs.org/recipes.
   "start": "parcel index.html"
 }
 ```
-### Looking over the setup so far
 
-Then my [`package.json`](./package.json) looked like this:
+This means that now, when you want to run `parcel index.html` (which is explained below) that you can also run it with the shorthand `yarn start` since you added the `start` `script` to `package.json`.
+
+### Review the setup so far
+
+At this point, my [`package.json`](./package.json) looked like this:
 ```json
 {
   "name": "dojo",
@@ -35,18 +38,18 @@ Then my [`package.json`](./package.json) looked like this:
   }
 }
 ```
-I checked online for the latest versions of react and react-dom (as of April 28, 2020) and this all looked good to me.
+I checked online for the latest versions of `react` and `react-dom` (as of April 28, 2020) and this all looked good to me.
 
 ### Back to the [Parcel Getting Started doc](https://parceljs.org/getting_started.html) to set up the Development Environment
 
-Next, create an index.html and index.js file.
+Next, create an `index.html` and `index.js` file.
 
 ```
 touch index.html
 touch index.js
 ```
 
-Paste this in index.html:
+Paste this in `index.html`:
 
 ```html
 <!DOCTYPE html>
@@ -57,12 +60,13 @@ Paste this in index.html:
   </body>
 </html>
 ```
-Parcel has a development server built in, which will automatically rebuild your app as you change files and supports hot module replacement for fast development. Point it at your entry file:
+Parcel has a development server built in, which will automatically rebuild your app as you change files and supports hot module replacement for fast development. Point it at your entry file with either of these identical-in-functionality commands in the terminal:
 
-`parcel index.html`
+`parcel index.html` or its equivalent `yarn start`
 
-Then open up <http://localhost:1234/>. Hopefully this works! This means the dev environment is set up!
+This command starts the local development environment so we can change `index.html` and see the changes in our browser.
 
+Then open up <http://localhost:1234/> to see a page that has the text "Hello". Hopefully this works! This means the dev environment is set up!
 
 ## [Home](./../README.md)
 ## [Prev <== Set up local files](./local.md)
