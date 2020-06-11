@@ -61,6 +61,8 @@ So, now you should have one added `devDependencies`:
 "@babel/preset-react": "^7.10.1",
 ```
 
+The Parcel babel docs changed between when I started this project and today, June 10, 2020, so you may need to also do `yarn add @babel/preset-env` and add another corresponding babel script with the proper version. Feel free to create an issue if you want to contact me and are having trouble.
+
 I did not test to verify babel is working by experimenting with older browser emulators. 
 
 ## [Home](./../README.md)

@@ -11,13 +11,13 @@
  - Latest versions of all tech is used to reduce vulnerabilities.
 
 ### Who is this for?
- - Junior devs who have finished a bootcamp and want to know how to build a React web app all the way from scratch and understand things like `.gitignore`, a new package manager other than `npm`, the `package.json` file, creating a dev environment, and deploying to production 
- - Devs who want to use parcel & yarn to build any kind of website, whether React (this tutorial), or Bootstrap & Sass static site ([this doc](https://github.com/hashbangash/dev/blob/master/v4_build.md)), etc.  
+ - Junior devs who have finished a bootcamp and want to know how to build a React web app all the way from scratch and understand things like `.gitignore`, a new, more secure package manager (`yarn`) other than `npm`, the `package.json` file, creating a dev environment, and deploying to production.
+ - Devs who want to use `Parcel` & `yarn` to build any kind of website, whether React (this tutorial), or Bootstrap & Sass static site ([this doc](https://github.com/hashbangash/dev/blob/master/v4_build.md)), etc.  
 
 ### Good things to know before you start
- - This tutorial is for building a React app with one page and host on GitHub Pages (without a custom domain). 
+ - This tutorial is for building a React app with one page and hosting on GitHub Pages (without a custom domain). 
  - Note that this tutorial works with a GitHub Pages site, and not a GitHub user site (I tried, but [it seems there's currently a bug](https://git.generalassemb.ly/ga-wdi-boston/portfolio-template/issues/57#issuecomment-216089)). 
- - There are small bugs with react-router-dom `BrowserRouter` and GitHub Pages routing make it possibly unusable for a professional app, but if you use a custom domain with GitHub Pages, it could possibly work. This is explained more in [9. react-router-dom experiment](./wiki/router.md).
+ - I wanted to add multi-page SPA functionality with react-router-dom, but couldn't get react-router-dom `BrowserRouter` fully working. I think if you try a custom domain with GitHub Pages and configure the sitemap, it could possibly work. This is explained more in [9. react-router-dom experiment](./wiki/router.md).
  
  ### Sites built with this tutorial
   - [This tutorial's open-source React web app template](https://hashbangash.github.io/dojo/)
