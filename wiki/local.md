@@ -14,27 +14,45 @@ Then run these commands:
 ```
 git init
 git remote add origin git@github.com:<github_username>/<repository_name>.git
-git remote -v // confirm I have the proper origins
+```
+
+Before creating files and pushing them up to GitHub, first run `git remote -v` to confirm you have the proper origins. Mine show:
+```
+origin	git@github.com:hashbangash/dojo.git (fetch)
+origin	git@github.com:hashbangash/dojo.git (push)
 ```
 
 Now, create your first file with: `touch .gitignore`
 
-Open the file in your code editor and add these lines into it:
+Open the file in your code editor (e.g. VSCode or Atom) and add these lines into it:
 ```
 node_modules
 dist
 .cache
 ```
-The gitignore file is a hidden file (hence the `.` before it). You will want to add this file to GitHub when you do a `git add`. The files in your gitignore will NOT be added to your GitHub repo but will live locally only. `node_modules` are files that will be created when we add dependencies with `yarn`. `dist` and `.cache` are files that are added when we use the Parcel module bundler.
+The gitignore file is a hidden file (hence the `.` before it). You will want to add this file to GitHub when you do a `git add`. The files specified within your gitignore file will NOT be added to your GitHub repo but will live locally only. `node_modules` is a very large filesystem that will be created when we add dependencies with `yarn`. `dist` and `.cache` are files that are added when we use the Parcel module bundler to build each version of our web app, and we will be storing these files on a future `gh-pages` branch, not the `master` branch. We will set up all that later.
+
+Let's add a README. 
+
+`touch README.md` to create it and then add some info into it, for example:
+```
+# My Web App built from scratch with yarn, Parcel and GitHub Pages
+
+### Created: June 1, 2020
+### Last modified: June 2, 2020
+
+##### Template tutorial from: https://github.com/hashbangash/dojo
+##### MIT Licensed
+```
 
 Next, push this repo to GitHub with:
 ```
-git add .
+git add .gitignore README.md
 git commit // fill out a commit message in my IDE
 git push -u origin master
 ```
 
-Add and commit after every step in this to trace your progress.
+Add and commit after every step in this to log your process.
 
 ### Install package manager, yarn
 
@@ -50,20 +68,30 @@ If you already have yarn, you could `brew upgrade yarn` instead.
 
 `yarn init`
 
-This creates a [`package.json`](./package.json) file. This is version 1 of my project, with an MIT License and public repository on GitHub. The entry-point is `index.js`.
+You can click `return` or `enter` on your keyboard to accept the default information for each field shown in parens `()`, or type to modify the field.
 
-Then I followed the [Parcel React Recipe](https://parceljs.org/recipes.html#react) from the React official docs.
+This creates a `package.json` file. The entry-point is `index.js`, which means that's the first JS file that starts up the program.
+
+Then, follow the next instructions, which are from the [Parcel React Recipe](https://parceljs.org/recipes.html#react) from the React official docs.
+
 ```
 yarn add react
 yarn add react-dom
-yarn add core-js // I added this command to update to core-js version 3. It's because I had seen a warning that I was behind in core-js version when I installed Parcel.
+```
+
+This tutorial builds a React app, but if you want to build a Bootstrap and Sass web app instead of React, at this point you could remove react with `yarn remove react react-dom` and the other dependencies with `yarn add bootstrap jquery popper.js` and `yarn add --dev sass` if you want to. I did that for [my portfolio](https://github.com/hashbangash/dev/blob/master/v4_build.md).
+
+Now, we'll add the module bundler, Parcel:
+
+```
 yarn add --dev parcel-bundler
 ```
 
-The flag `--dev` or `-d` adds `parcel-bundler` in the `devDependencies` in [`package.json`](./package.json).
+The flag `--dev` (fyi, same as `-d` flag) adds `parcel-bundler` in the `devDependencies` in `package.json`. We're using these libraries of code for the development of the app only, and these files don't need to accompany the live production version of the app that it sent to user's computer.
 
-I did get a warning when I ran `yarn add --dev parcel-bundler` that my `core-js` was below version 3, but when I checked my `package.json`, the `core-js` version showed `^3.6.5`, so I decided I was fine for now, and to keep building.
+I did get a warning when I ran `yarn add --dev parcel-bundler` that my `core-js` was below version 3, so I did `yarn add core-js`. Then, when I checked my `package.json`, the `core-js` version showed `^3.6.5`, which is current (as of June 10, 2020).
 
+Alright! Now we've got the libraries of code we need on our computers, and we've got all the basic files set up in a folder that we've synced with Github.
 
 ## [Home](./../README.md)
 ## [Prev <== Dependency Choices](./dependencies.md)
