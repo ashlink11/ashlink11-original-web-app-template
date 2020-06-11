@@ -4,6 +4,12 @@
 
 # Summary
 
+ - This is an open-source, lightweight, maintainable React app template.
+ - It's built with as few dependencies and configurations as possible.
+ - Toolchain is built from scratch with yarn, Parcel, React & GitHub Pages.
+ - Official documentation of all tech is heavily referenced through the tutorial for best-practices.
+ - Latest versions of all tech is used to reduce vulnerabilities.
+
 ### Who is this for?
  - Junior devs who have finished a bootcamp and want to know how to build a React web app all the way from scratch and understand things like `.gitignore`, a new package manager other than `npm`, the `package.json` file, creating a dev environment, and deploying to production 
  - Devs who want to use parcel & yarn to build any kind of website, whether React (this tutorial), or Bootstrap & Sass static site ([this doc](https://github.com/hashbangash/dev/blob/master/v4_build.md)), etc.  

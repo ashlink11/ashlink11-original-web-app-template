@@ -5,7 +5,7 @@ export default function App() {
     <div>
       <div>
         <h1>The Dojo Project: A React Build Toolchain Tutorial and Template</h1>
-        <p>Last updated: Friday, May 18, 2020</p>
+        <p>Last updated: Wednesday, June 10, 2020</p>
       </div>
       <div>
         <h1>About</h1>
