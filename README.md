@@ -9,7 +9,7 @@
  - Know the build process with yarn & Parcel and use to build other sites easily with other JS libraries like Bootstrap and tools like Sass like I did for [my portfolio](https://hashbangash.github.io/dev/).
 
 ### Limitations
- - Small bugs with react-router-dom `BrowserRouter` and GitHub Pages routing make it possibly unusable for a professional app, but if you use a custom domain with GitHub Pages, it could work. This is explained more in [9. react-router-dom experiment](./wiki/router.md).
+ - Small bugs with react-router-dom `BrowserRouter` and GitHub Pages routing make it possibly unusable for a professional app, but if you use a custom domain with GitHub Pages, it could possibly work. This is explained more in [9. react-router-dom experiment](./wiki/router.md).
 
 # Table of Contents:
 

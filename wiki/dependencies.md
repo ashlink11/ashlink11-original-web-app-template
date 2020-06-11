@@ -10,7 +10,7 @@ A JavaScript build toolchain typically consists of:
 
 
 ### yarn
-I chose `yarn` for my package manager because it's more secure than `npm`, creates the `package.lock` file like `npm` does, and also it's easy to manage licenses and ensure the dependencies all have MIT License (which is ok for commercial use) and not GNU GPLv3 (which is non-commerical). Use `yarn licenses list` to get a proper bill of technology.
+I chose `yarn` for my package manager because it's [more secure than `npm`](https://engineering.fb.com/web/yarn-a-new-package-manager-for-javascript/), creates the `package.lock` file like `npm` does to manage dependencies, and also it's easy to manage licenses and ensure the dependencies all have MIT License (which is ok for commercial use) and not GNU GPLv3 (which is non-commerical). Use `yarn licenses list` to get a proper bill of technology.
 
 ### parcel
 I chose parcel as my module bundler because Ryan Dahl (creator of Node.js and Deno JS frameworks) said that `parcel` is "really great" in his [10 Things I Regret About Node.js talk](https://www.youtube.com/watch?v=M3BM9TB-8yA) (at 23:20). He likes having a single executable file that you can give the browser runtime such as Chrome V8 Engine. Parcel creates a single, bundled JavaScript file from all my project files that I can put in V8. It makes the build process simple because it's "zero configuration". For a beginner, I found it to be a good first module bundler to learn.
