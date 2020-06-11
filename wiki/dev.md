@@ -49,6 +49,8 @@ touch index.html
 touch index.js
 ```
 
+Leave `index.js` empty for now. 
+
 Paste this in `index.html`:
 
 ```html
