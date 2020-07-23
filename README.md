@@ -1,6 +1,6 @@
 # Dojo Project - Learning the Build Process for a React Web App
 #### Date created: Tuesday, April 28, 2020
-#### Date last modified: Wednesday, June 10, 2020
+#### Date last modified: Wednesday, June 10, 2020 (security patch lodash July 23, 2020)
 
 # Summary
 
